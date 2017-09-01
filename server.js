@@ -95,7 +95,7 @@ app.get('/login/:username/:password',function(req,res)
                 }
                 else
                 {
-                    res.send(403).send('wrong password');
+                    res.send(404).send('wrong password');
                 }
             }
         }
