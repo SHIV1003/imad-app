@@ -51,6 +51,20 @@ app.get('/create-user/:username/:password',function(req,res)
         }
     });
 });
+app.get('/check',function(req,res)
+{
+     pool.query('SELECT * FROM "user" ',function (err,result)
+    {
+        if(err)
+        {
+            res.status(500).send(err.toString());
+        }
+        else
+        {
+            console.log('successful');
+            return successful;
+        }
+});
 
 app.get('/login/:username/:password',function(req,res)
 {
