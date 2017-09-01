@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
 function hash(input,salt)
 {
     var hashed =  crypto.pbkdf2Sync(input, salt, 100000, 128, 'sha512');
-    return['pbkdf2', salt ,hashed.toString('hex')].join('#');
+    return['pbkdf2', salt ,hashed.toString('hex')].join('$');
 }
 
 app.get('/hash/:input', function(req,res)
@@ -21,6 +21,23 @@ app.get('/hash/:input', function(req,res)
     var hashedString = hash(req.params.input,'this is a salt');
     res.send(hashedString);
 })
+
+app.get('/create-user/:username/:passwowrd',function(req,res)
+{
+    var salt = crypto.randomBytes(128).toString('hex');
+    var dbString = hash(password,salt);
+    pool.query('INSERT INTO "user" (username,password) VALUES($1,$2)',[username,dbString],function (err,result,)
+    {
+        if(err)
+        {
+            res.status(500).send(err.toString());
+        }
+        else
+        {
+            res.send('user successfully created'+user);
+        }
+    });
+});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
