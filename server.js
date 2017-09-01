@@ -54,10 +54,10 @@ app.get('/create-user/:username/:password',function(req,res)
 
 app.get('/login/:username/:password',function(req,res)
 {
-    var username = req.params.username;
-    var password = req.params.password;
+   // var username = req.params.username;
+   // var password = req.params.password;
     
-    pool.query('SELECT * FROM "user" WHERE username=$1'[username],function(err,result)
+    pool.query('SELECT * FROM "user" WHERE username=$1'[req.params.username],function(err,result)
     {
         if(err)
         {
@@ -73,7 +73,7 @@ app.get('/login/:username/:password',function(req,res)
             {
                 var dbString = result.rows[0].password;
                 var salt = dbString.split('$')[2];
-                var hashedPassword = hash(password,salt);
+                var hashedPassword = hash(req.params.password,salt);
                 if(hashedpassword===dbstring)
                 {
                     console.log('succesfully login');
