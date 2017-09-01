@@ -76,7 +76,7 @@ app.get('/login/:username/:password',function(req,res)
                 var hashedPassword = hash(password,salt);
                 if(hashedpassword===dbstring)
                 {
-                    res.send(<h1>'succesfully login'</h1>);
+                    res.send('<h1>succesfully login<h1>');
                 }
                 else
                 {
