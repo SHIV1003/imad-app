@@ -18,5 +18,5 @@ submit.onclick = function(){
     console.log(username);
     request.open('post','http://http://goyalshivam1003.imad.hasura-app.io/check1',true);
     request.setRequestHeader('content-type','application/json');
-    request.send(JSON.stringify({username:username}));
+    request.send(JSON.stringify({username: username}));
 };
