@@ -39,6 +39,7 @@ app.get('/create-user/:username/:password',function(req,res)
         }
     });
 });
+var pool = new pool(config);
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
