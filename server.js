@@ -63,7 +63,6 @@ app.get('/check',function(req,res)
         else
         {
             console.log('successful');
-            return success;
         }
     })
 });
