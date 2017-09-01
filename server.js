@@ -87,7 +87,7 @@ app.get('/login/:username/:password',function(req,res)
             else
             {
                 var dbString = result.rows[0].password;
-                var salt = dbString.split('$')[2];
+                var salt = dbString.split('$')[1];
                 var hashedPassword = hash(req.params.password,salt);
                 if(hashedPassword === dbString)
                 {
@@ -95,7 +95,7 @@ app.get('/login/:username/:password',function(req,res)
                 }
                 else
                 {
-                    res.send(404).send('wrong password');
+                    res.send(403).send('wrong password');
                 }
             }
         }
