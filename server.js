@@ -66,6 +66,11 @@ app.get('/check',function(req,res)
         }
     })
 });
+app.post('/check1',function(req,res)
+{
+    var username1 = req.body.username;
+    res.send(username);
+})
 
 app.get('/login/:username/:password',function(req,res)
 {
