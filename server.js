@@ -4,6 +4,14 @@ var path = require('path');
 var crypto = require('crypto');
 var pool = require('pg').pool;
 
+var config = 
+{
+    user: 'goyalshivam1003',
+    database: 'goyalshivam1003',
+    host: 'db.imad.hasura-app.io',
+    port: '5432',
+    password: process.env.DB_PASSWORD
+};
 var app = express();
 app.use(morgan('combined'));
 
