@@ -7,7 +7,19 @@ app.use(morgan('combined'));
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
+})
+
+function hash(input,salt)
+{
+    var hashed =  crypto.pbkdf2Sync('password', 'salt', 100000, 512, 'sha512');
+    return['pbkdf',100000,'salt,hashed.toString(hex)'].join($);
+}
+
+app.get('/hash/:input', function(req,res)
+{
+    var hashaedString = hash(req.params.input,'this is a salt');
+    res.send(hashedString);
+})
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
