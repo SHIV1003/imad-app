@@ -89,7 +89,7 @@ app.get('/login/:username/:password',function(req,res)
                 var dbString = result.rows[0].password;
                 var salt = dbString.split('$')[2];
                 var hashedPassword = hash(req.params.password,salt);
-                if(hashedpassword===dbstring)
+                if(hashedpassword==dbstring)
                 {
                     console.log('succesfully login');
                 }
