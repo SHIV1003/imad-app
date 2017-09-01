@@ -53,6 +53,7 @@ app.get('/create-user/:username/:password',function(req,res)
 });
 app.get('/check',function(req,res)
 {
+    var success = 'success';
      pool.query('SELECT * FROM "user" ',function (err,result)
     {
         if(err)
@@ -62,7 +63,7 @@ app.get('/check',function(req,res)
         else
         {
             console.log('successful');
-            return successful;
+            return success;
         }
     })
 });
