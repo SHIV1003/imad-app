@@ -1,4 +1,4 @@
-console.log('Loaded!');
+
 var submit = document.getElementById('submit_bttn');
 submit.onclick = function(){
     var request = new XMLHttpRequest();
@@ -6,5 +6,5 @@ submit.onclick = function(){
     console.log(username);
     request.open('post','http://http://goyalshivam1003.imad.hasura-app.io/check1',true);
     request.setRequestHeader('content-type','application/json');
-    request.send(JSON.strinfigy({username:username}));
+    request.send(JSON.stringify({username:username}));
 };
