@@ -22,7 +22,7 @@ app.get('/hash/:input', function(req,res)
     res.send(hashedString);
 })
 
-app.get('/create-user/:username/:passwowrd',function(req,res)
+app.get('/create-user/:username/:password',function(req,res)
 {
     var salt = crypto.randomBytes(128).toString('hex');
     var dbString = hash(password,salt);
