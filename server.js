@@ -62,7 +62,7 @@ app.get('/check',function(req,res)
         }
         else
         {
-            console.log(result.rows[0].username);
+            console.log(result.rows[0].password);
         }
     })
 });
