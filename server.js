@@ -91,7 +91,7 @@ app.get('/login/:username/:password',function(req,res)
                 var hashedPassword = hash(req.params.password,salt);
                 if(hashedPassword === dbString)
                 {
-                    res.send('succesfully login');
+                    res.send('succesfully login hurray');
                 }
                 else
                 {
