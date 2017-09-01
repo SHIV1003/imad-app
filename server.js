@@ -51,6 +51,25 @@ app.post('/create-user',function(req,res)
         }
     });
 });
+
+app.post('/login/:username/:password',function(req,res)
+{
+    var username = req.params.username;
+    var password = req.params.password;
+    
+    pool.query('select * from "user" where username=$1'[username],function(err,result)
+    {
+        if(err)
+        {
+            res.satus(500).send(err.toString());
+        }
+        else
+        {
+            if(result.rows.length===0)
+        }
+    })
+    
+});
 var pool = new Pool(config);
 
 app.get('/ui/style.css', function (req, res) {
