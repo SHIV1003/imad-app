@@ -64,6 +64,7 @@ app.get('/check',function(req,res)
             console.log('successful');
             return successful;
         }
+    })
 });
 
 app.get('/login/:username/:password',function(req,res)
