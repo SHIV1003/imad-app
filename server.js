@@ -72,7 +72,7 @@ app.get('/login/:username/:password',function(req,res)
    // var username = req.params.username;
    // var password = req.params.password;
     
-    pool.query('SELECT * FROM "user"',function(err,result)
+    pool.query('SELECT password FROM "user"',function(err,result)
     {
         if(err)
         {
