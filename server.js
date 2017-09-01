@@ -54,7 +54,7 @@ app.get('/create-user/:username/:password',function(req,res)
 app.get('/check',function(req,res)
 {
     
-     pool.query('SELECT * FROM "user" ',function (err,result)
+     pool.query('SELECT * FROM "user" WHERE USERNAME = $1',[req.params.username],function (err,result)
     {
         if(err)
         {
