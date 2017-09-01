@@ -66,8 +66,25 @@ app.post('/login/:username/:password',function(req,res)
         else
         {
             if(result.rows.length===0)
+            {
+                res.send(403).send('username/password is invalid');
+            }
+            else
+            {
+                var dbString = result.rows[0].password;
+                var salt = dbString.split('$')[2];
+                var hashedPassword = hash(password,salt);
+                if(hashedpassword===dbstring)
+                {
+                    res.send('succesfully login');
+                }
+                else
+                {
+                    res.send(403).send('wrong password');
+                }
+            }
         }
-    })
+    });
     
 });
 var pool = new Pool(config);
