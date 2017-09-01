@@ -16,7 +16,7 @@ submit.onclick = function(){
       };
     var username = document.getElementById('username').value;
     console.log(username);
-    request.open('post','http://http://goyalshivam1003.imad.hasura-app.io/check1',true);
+    request.open('post','http://goyalshivam1003.imad.hasura-app.io/check1',true);
     request.setRequestHeader('content-type','application/json');
     request.send(JSON.stringify({username: username}));
 };
